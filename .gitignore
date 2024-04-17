@@ -1,0 +1,8 @@
+# Ignore all executables.
+build/.cmake
+build/CmakeFiles
+build/Makefile
+build/CMakeCache.txt
+build/cmake_install.cmake
+build/compile_commands.json
+build/MyExecutable.exe
