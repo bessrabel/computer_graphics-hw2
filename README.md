@@ -9,12 +9,12 @@ Visual Studio Code 설치 및 아래의 2개 확장 설치 필요
 
 + CMake
 
-![CMake](https://github.com/bessrabel/computer_graphics-hw1/blob/main/readmePng/c%2B%2B.PNG)
+![CMake](https://github.com/bessrabel/computer_graphics-hw2/blob/main/readmePng/cmake.PNG)
 
 
 + CMake Tools
 
-![CMake Tools](https://github.com/bessrabel/computer_graphics-hw1/blob/main/readmePng/c%2B%2B_extension.PNG)
+![CMake Tools](https://github.com/bessrabel/computer_graphics-hw2/blob/main/readmePng/cmakeTools.PNG)
 
 #### 2. g++
 Using GCC with MinGW
@@ -67,5 +67,5 @@ README.md 파일 이미지 첨부를 위한 폴더
 #### Unshaded
 
 + result
-![Unshaded](https://github.com/bessrabel/computer_graphics-hw1/blob/main/readmePng/Ray%20Intersection.PNG)
+![Unshaded](https://github.com/bessrabel/computer_graphics-hw2/blob/main/readmePng/unshaded.PNG)
 
