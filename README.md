@@ -67,5 +67,5 @@ README.md 파일 이미지 첨부를 위한 폴더
 #### Unshaded
 
 + result
-![Unshaded](https://github.com/bessrabel/computer_graphics-hw2/blob/main/readmePng/unshaded.PNG)
+![Unshaded](https://github.com/bessrabel/computer_graphics-hw2/blob/main/readmePng/unshaded.png)
 
