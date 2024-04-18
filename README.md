@@ -60,11 +60,12 @@ README.md 파일 이미지 첨부를 위한 폴더
 ---
 
 ### compilation instructions
+
 ```
-vscode를 실행 후, 다운받은 파일 폴더를 프로젝트 폴더로 선택 
-명령창(F1 단축키)으로 CMake:configure 명령 선택하여 운영체제에 맞는 컴파일러 도구(gcc 등) 선택
-다시 command를 입력할 수 있는 명령창을 열고 CMake:Build로 빌드(이때 CMakeList.txt 파일을 참고하여 자동으로 빌드됨)
-마지막으로 디버그(명령창 CMake:dubug or ctrl+ F5)하여 실행 결과를 확인
+1. vscode를 실행 후, 다운받은 파일 폴더를 프로젝트 폴더로 선택 
+2. 명령창(F1 단축키)으로 CMake:configure 명령 선택하여 운영체제에 맞는 컴파일러 도구(gcc 등) 선택
+3. 다시 command를 입력할 수 있는 명령창을 열고 CMake:Build로 빌드(이때 CMakeList.txt 파일을 참고하여 자동으로 빌드됨)
+4. 마지막으로 디버그(명령창 CMake:dubug or ctrl+ F5)하여 실행 결과를 확인
 ```
 
  ---
