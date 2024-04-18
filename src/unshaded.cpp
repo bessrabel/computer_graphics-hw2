@@ -3,6 +3,7 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <vector>
 
 #include <glad.h>
 #include <glfw3.h>
@@ -15,7 +16,6 @@ using namespace glm;
 #define Ny 512
 
 unsigned char Image[Nx*Ny*3];
-float Depth[Nx*Ny];
 
 class Modeling{
     float scale;
@@ -233,11 +233,8 @@ int main(){
 
     glViewport(0, 0, 512, 512);
     
-    for(int y = 0; y < Ny; y++){
-        for(int x = 0; x < Nx; x++){
-            Depth[y * Nx+ x] = -1*INFINITY; //음의 무한대로 깊이 초기화
-        }
-    }
+    // 픽셀당 DEPTHBUFFER를 저장할 배열
+    std::vector<float> depthBuffer(Nx * Ny, -INFINITY);
 
     for(int i = 0; i < gNumTriangles; i++){
         int k0 = gIndexBuffer[3*i + 0]; 
@@ -248,6 +245,7 @@ int main(){
         vec3 b = vertices[k1]; // 삼각형 꼭짓점 좌표 b
         vec3 c = vertices[k2]; // 삼각형 꼭짓점 좌표 c
 
+        // Bounding Rectangle
         int xmin = floor(std::min(std::min(a.x, b.x), c.x));
         int xmax = ceil(std::max(std::max(a.x, b.x), c.x));
         int ymin = floor(std::min(std::min(a.y, b.y), c.y));
@@ -269,8 +267,9 @@ int main(){
         for(int y = ymin; y <= ymax; y ++){
             for(int x = xmin; x <= xmax; x ++){
                 if (beta > 0 && gamma > 0 && beta + gamma < 1){
-                    if((a.z + b.z + c.z) / 3 > Depth[y * Nx + x]) { //삼각형이 앞에 있으면 출력
-                        Depth[y * Nx + x] = (a.z + b.z + c.z) / 3;
+                    float depth = beta * a.z + gamma * b.z + (1-(beta+gamma)) * c.z; // 픽셀 깊이 구하기 
+                    if(depth > depthBuffer[y * Nx + x]) { //삼각형이 앞에 있으면 출력
+                        depthBuffer[y * Nx + x] = depth;
                         for (int i = 0; i < 3; i ++){
                             int idx = (y * Nx + x) * 3;
                             Image[idx+i] = 255;
