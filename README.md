@@ -328,7 +328,7 @@ void create_scene(Modeling model, Camera cam, PerspectiveProjection projection, 
         for(int y = ymin; y <= ymax; y ++){
             for(int x = xmin; x <= xmax; x ++){
                 if (beta > 0 && gamma > 0 && beta + gamma < 1){ // 픽셀이 삼각형 내부에 있으면 드로우
-                    float depth = beta * a.z + gamma * b.z + (1-(beta+gamma)) * c.z; // 픽셀 깊이 구하기 
+                    float depth = (1-(beta+gamma)) * a.z + beta * b.z + gamma * c.z; // 픽셀 깊이 구하기 
                     if(depth > depthBuffer[y * Nx + x]) { //삼각형이 앞에 있으면 드로우
                         depthBuffer[y * Nx + x] = depth;
                         for (int i = 0; i < 3; i ++){
